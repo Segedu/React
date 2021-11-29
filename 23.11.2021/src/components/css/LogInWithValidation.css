@@ -1,0 +1,17 @@
+.LogInWithValidation{
+    background-color:#63BAAB;
+    border-radius: 10px;
+    margin-left: 30%;
+    padding: 2%;
+    width: 40%;
+}
+input{
+    border-radius: 10px;
+    margin: 1%;
+    padding: 2%;
+}
+#button{
+    padding: 2%;
+    border-radius: 10px;
+    background-color: #4C8077;
+}
