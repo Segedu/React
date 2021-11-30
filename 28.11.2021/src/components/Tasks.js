@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import './Tasks.css'
+import './Tasks.css';
 
 class Tasks extends Component {
     constructor(props) {
