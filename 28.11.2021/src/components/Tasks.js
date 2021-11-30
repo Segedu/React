@@ -1,11 +1,30 @@
 import { Component } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import './Tasks.css'
 
 class Tasks extends Component {
     constructor(props) {
         super(props);
         this.state = { tasks: [], newTaskName: "" }
     }
+
+    // componentWillMount() {
+    //     localStorage.getItem('newTaskName') && this.setState({ tasks: JSON.parse(localStorage.getItem('newTaskName')) });
+    // }
+
+    // componentDidMount() {
+    //     if (!localStorage.getItem('newTaskName')) {
+    //         this.setState(
+    //             this.getAllInCompleteTasks()
+    //         )
+    //     }
+    //     else console.log("data from local storage");
+    // }
+
+
+    // componentWillUpdate() {
+    //     localStorage.setItem('newTaskName', JSON.stringify(this.state.newTaskName));
+    // }
 
     componentDidMount() {
         this.setState(
@@ -17,7 +36,8 @@ class Tasks extends Component {
         return {
             tasks:
                 [
-                    { taskTitle: "reading", isCompleted: false, id: 1 }
+                    { taskTitle: "reading", isCompleted: false, id: uuidv4() },
+                    { taskTitle: "sport", isCompleted: false, id: uuidv4() }
                 ],
             newTaskName: "",
         }
@@ -53,9 +73,10 @@ class Tasks extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Tasks">
+                <h1>To do list</h1>
                 {this.filterUnComplete().map((task) => {
-                    return <div key={task.id}><h3>{task.taskTitle}</h3>
+                    return <div key={task.id}><h1>{task.taskTitle}</h1>
                         <button onClick={() => this.setCompleted(task.id)}>completed</button>
                         <button onClick={() => this.deleteTask(task.id)}>delete</button>
                     </div>

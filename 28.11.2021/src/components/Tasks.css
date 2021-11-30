@@ -1,6 +1,23 @@
 .Tasks{
-    /* display: flex; */
-    /* background-color: aquamarine; */
+ 
+    
 }
 div{
+    padding: 1%;
+}
+button{
+    margin: 1%;
+    padding: 0.5%;
+    border-radius: 10px;
+    background-color: black;
+    color: blanchedalmond;
+    font-size: larger;
+}
+input{
+    border-radius: 10px;
+    padding: 1%;
+    margin:1%;
+}
+h1{
+    display: inline;
 }
