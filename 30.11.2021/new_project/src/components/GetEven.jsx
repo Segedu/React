@@ -2,18 +2,17 @@ import { Component } from 'react';
 
 class GetEven extends Component {
     state = {
-        buttons: [
-            { number: 1, clicked: false },
-            { number: 2, clicked: false },
-            { number: 3, clicked: false },
-            { number: 4, clicked: false },
-            { number: 5, clicked: false },
-            { number: 6, clicked: false },
-            { number: 7, clicked: false },
-            { number: 8, clicked: false },
-            { number: 9, clicked: false },
-            { number: 10, clicked: false }
-        ]
+        buttons: []
+    }
+
+    componentDidMount() {
+        const temp = []
+        for (let i = 0; i < 10; i++) {
+            let randNum = Math.floor(Math.random() * 19 + 1)
+            let newObj = { number: randNum, clicked: false }
+            temp.push(newObj)
+        }
+        this.setState({ buttons: temp })
     }
 
     clickHandler = (index) => {
@@ -21,16 +20,20 @@ class GetEven extends Component {
         if (newButtons[index].number % 2 === 0) {
             newButtons[index].clicked = true;
             this.setState({ buttons: newButtons });
-            console.log("clicked");
+
         }
     }
 
     render() {
         return (<div>
-            {this.state.buttons.map((btn, i) => <button onClick={() => { this.clickHandler(i) }} key={i}>{btn.number}</button>)}
+            {this.state.buttons.map((btn, i) => <button disabled={btn.clicked} onClick={() => {
+                return this.clickHandler(i)
+            }} key={i}>{btn.number}</button>)}
         </div>)
     }
 }
+
+export default GetEven;
 
 // --- rand 10 numbers integer between 1,20
 // --- show them on the dom on a row 
@@ -46,5 +49,3 @@ class GetEven extends Component {
 // --- start button
 // --- display elapsed seconds and 'Game Over' in Message component
 // --- display each number in Item component
-
-export default GetEven;
