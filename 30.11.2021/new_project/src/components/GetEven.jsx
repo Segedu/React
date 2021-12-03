@@ -20,7 +20,6 @@ class GetEven extends Component {
         if (newButtons[index].number % 2 === 0) {
             newButtons[index].clicked = true;
             this.setState({ buttons: newButtons });
-
         }
     }
 
@@ -35,8 +34,6 @@ class GetEven extends Component {
 
 export default GetEven;
 
-// --- rand 10 numbers integer between 1,20
-// --- show them on the dom on a row 
 // --- start clock
 // --- click all even numbers and mark per click (greyed ? disabled ?)
 // --- show elapsed second and 'Game Over' after success
