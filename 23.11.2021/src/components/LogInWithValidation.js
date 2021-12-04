@@ -4,8 +4,11 @@ import './css/LogInWithValidation.css';
 class LogInWithValidation extends Component {
     state = { name: "", password: "" }
     nameChangeHandler = (input) => this.setState({ name: input.target.value })
+    
     passwordChangeHandler = (input) => this.setState({ password: input.target.value })
+    
     login = () => { console.log(this.state.name, this.state.password) };
+    
     isValidationOk = () => this.state.password.length > 5 && this.state.name.length > 3;
 
     render() {

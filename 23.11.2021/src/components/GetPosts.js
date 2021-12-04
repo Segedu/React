@@ -12,7 +12,9 @@ class GetFromJsonPlaceholder extends Component {
             })
             .catch((error) => { console.log(error) })
     }
+
     changeHandler = input => this.setState({ url: input.target.value })
+    
     render() {
         return (
             <div className="GetFromJsonPlaceholder">

@@ -4,7 +4,9 @@ class LogIn extends Component {
     name
     password
     nameChangeHandler = (input) => this.name = input.target.value
+
     passwordChangeHandler = (input) => this.password = input.target.value
+
     login = () => {
         console.log(this.name, this.password);
     }
