@@ -2,9 +2,10 @@ import { Component } from 'react';
 
 class GetEven extends Component {
     state = {
-        buttons: []
+        buttons: [],
+        date: new Date().getSeconds()
     }
-
+    
     componentDidMount() {
         const temp = []
         for (let i = 0; i < 10; i++) {
@@ -13,6 +14,7 @@ class GetEven extends Component {
             temp.push(newObj)
         }
         this.setState({ buttons: temp })
+        setInterval(() => { this.setState({ date: this.state.date++ }) }, 1000)
     }
 
     clickHandler = (index) => {
