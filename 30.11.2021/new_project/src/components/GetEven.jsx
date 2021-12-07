@@ -3,30 +3,49 @@ import { Component } from 'react';
 class GetEven extends Component {
     state = {
         elementsArray: [],
-        counter: 0,
+        timer: 0,
+        evenNumbersCount: 0
     }
 
     componentDidMount() {
+        this.startGame()
+    }
+
+    startGame = () => {
         const tempArray = []
         for (let i = 0; i < 10; i++) {
             let randNum = Math.floor(Math.random() * 19 + 1)
             let newObj = { number: randNum, clicked: false }
             tempArray.push(newObj)
+            // if (this.state.elementsArray.number % 2 == 0) {
+            //     // sum += 10;
+            //     this.setState({ evenNumbersCount: this.state.evenNumbersCount + 1 });
+            // }
         }
+
         this.setState({ elementsArray: tempArray })
+        console.log(this.state.evenNumbersCount);
         this.startTimer()
     }
 
     startTimer = () => {
-        setInterval(() => { this.setState({ counter: this.state.counter + 1 }) }, 1000)
+        setInterval(() => { this.setState({ timer: this.state.timer + 1 }) }, 1000)
     }
+
+    // isGameOver = () => {
+    //     this.intervalId
+    // }
 
     clickHandler = (index) => {
         let newElementsArr = this.state.elementsArray;
         if (newElementsArr[index].number % 2 === 0) {
             newElementsArr[index].clicked = true;
             this.setState({ elementsArray: newElementsArr });
+            // this.evenNumbersCount - 1;
         }
+        // if (this.evenNumbersCount == 0) {
+        //     alert("Game Over You Win")
+        // }
     }
 
     render() {
@@ -35,17 +54,13 @@ class GetEven extends Component {
         return (
             <div>
                 {elements}
-                <p>counter: {this.state.counter}</p>
+                <p>timer: {this.state.timer}</p>
             </div>
         )
     }
 }
 
 export default GetEven;
-
-// --- start clock
-// --- click all even numbers and mark per click (greyed ? disabled ?)
-// --- show elapsed second and 'Game Over' after success
 
 // ******** advanced
 // --- click odd number will punish by adding 1 sec to the time
