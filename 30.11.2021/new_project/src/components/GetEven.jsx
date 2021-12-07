@@ -2,35 +2,42 @@ import { Component } from 'react';
 
 class GetEven extends Component {
     state = {
-        buttons: [],
-        date: new Date().getSeconds()
+        elementsArray: [],
+        counter: 0
     }
-    
+
     componentDidMount() {
-        const temp = []
+        const tempArray = []
         for (let i = 0; i < 10; i++) {
             let randNum = Math.floor(Math.random() * 19 + 1)
             let newObj = { number: randNum, clicked: false }
-            temp.push(newObj)
+            tempArray.push(newObj)
         }
-        this.setState({ buttons: temp })
-        setInterval(() => { this.setState({ date: this.state.date++ }) }, 1000)
+        this.setState({ elementsArray: tempArray })
+        this.startTimer()
+    }
+
+    startTimer = () => {
+        setInterval(() => { this.setState({ counter: this.state.counter + 1 }) }, 1000)
     }
 
     clickHandler = (index) => {
-        let newButtons = this.state.buttons;
+        let newButtons = this.state.elementsArray;
         if (newButtons[index].number % 2 === 0) {
             newButtons[index].clicked = true;
-            this.setState({ buttons: newButtons });
+            this.setState({ elementsArray: newButtons });
         }
     }
 
     render() {
-        return (<div>
-            {this.state.buttons.map((btn, i) => <button disabled={btn.clicked} onClick={() => {
-                return this.clickHandler(i)
-            }} key={i}>{btn.number}</button>)}
-        </div>)
+        const elements = this.state.elementsArray.map((btn, i) => <button disabled={btn.clicked}
+            onClick={() => { return this.clickHandler(i) }} key={i}>{btn.number}</button>)
+        return (
+            <div>
+                {elements}
+                <p>counter: {this.state.counter}</p>
+            </div>
+        )
     }
 }
 
