@@ -3,7 +3,7 @@ import { Component } from 'react';
 class GetEven extends Component {
     state = {
         elementsArray: [],
-        counter: 0
+        counter: 0,
     }
 
     componentDidMount() {
@@ -22,10 +22,10 @@ class GetEven extends Component {
     }
 
     clickHandler = (index) => {
-        let newButtons = this.state.elementsArray;
-        if (newButtons[index].number % 2 === 0) {
-            newButtons[index].clicked = true;
-            this.setState({ elementsArray: newButtons });
+        let newElementsArr = this.state.elementsArray;
+        if (newElementsArr[index].number % 2 === 0) {
+            newElementsArr[index].clicked = true;
+            this.setState({ elementsArray: newElementsArr });
         }
     }
 
