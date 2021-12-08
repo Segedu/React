@@ -62,11 +62,3 @@ class GetEven extends Component {
 
 export default GetEven;
 
-// ******** advanced
-// --- click odd number will punish by adding 1 sec to the time
-// --- put time in history (use local storage e.g. using JSON for persistence)
-// --- show history
-// --- show items in two rows
-// --- start button
-// --- display elapsed seconds and 'Game Over' in Message component
-// --- display each number in Item component
