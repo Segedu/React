@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const TwoCountersShort = ({ initialValue, initialValue2 }) => {
+const TwoCountersShort = () => {
     const [{ counter1, counter2 }, setCounter] = useState({ counter1: 0, counter2: 2 })
     return <div>
         <button onClick={() => setCounter({ counter1: counter1 + 1, counter2: counter2 })}>Click</button>
