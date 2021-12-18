@@ -6,12 +6,22 @@ import GetPostById from './components/GetPostById';
 import ClearDom from './components/ClearDom';
 
 function App() {
+  const [flag, setFlag] = useState(true);
+
+  const click = () => {
+    setFlag(!flag)
+  }
+
   return (
     <div className="App">
       {/* <Posts /> */}
+      <hr />
       {/* <TitleCounter /> */}
-      <GetPostById id={5} />
-      <ClearDom/>
+      <hr />
+      {/* <GetPostById id={5} /> */}
+      <hr />
+      <button onClick={click}>{flag ? "Unmount" : "Mount"}</button>
+      {flag ? <ClearDom /> : ""}
     </div>
   )
 }
