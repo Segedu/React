@@ -5,6 +5,7 @@ import { useContext } from 'react';
 
 const Level3 = () => {
     const context = useContext(UserContext)
+  
     return (
         <Fragment>
             <h2>this is level 3 </h2>

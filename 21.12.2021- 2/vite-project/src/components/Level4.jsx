@@ -7,14 +7,11 @@ const Level4 = () => {
     return (
         <div>
             <h2>this is level 4 </h2>
-            <br />
-            <p>
-                {context.name}-
-                {context.number}-
-                <h4>
-                    {context.description}
-                </h4>
-            </p>
+            {context.name}-
+            {context.number}-
+            <h4>
+                {context.description}
+            </h4>
         </div>
     );
 };

@@ -6,7 +6,6 @@ const Level2 = () => {
     return (
         <Fragment>
             <h2>this is level 2 </h2>
-
             <Level3 />
         </Fragment>
     )

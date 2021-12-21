@@ -4,8 +4,7 @@ import { UserContext } from '../context/UserContext';
 
 const Level1 = () => {
     const user = { name: "David", email: "David@gmail.com", description: "This data sent from level 1" };
-
-
+   
     return (
         <Fragment>
             <h2>this is level 1 </h2>
