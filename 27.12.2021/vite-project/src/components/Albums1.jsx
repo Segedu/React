@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react"
+import useFetchResource from "./hooks/useFetch";
 
 const Albums1 = () => {
-    const [albums, setAlbums] = useState([]);
-    useEffect(getAlbums, [])
-
-    function getAlbums() {
-        fetch('https://jsonplaceholder.typicode.com/albums')
-            .then(response => response.json(
-            ))
-            .then(data => {
-                setAlbums(data)
-            })
-    }
-
+    const albums = useFetchResource("albums");
     return (<div>
         <h1>Albums</h1>
         <table>
-
-            {albums.map((album, i) => <tr key={i}><td>{album.title}</td></tr>)}
+            <tbody>
+                {albums.map((album, i) => <tr key={i}><td>{album.title}</td></tr>)}
+            </tbody>
         </table>
     </div>)
 }

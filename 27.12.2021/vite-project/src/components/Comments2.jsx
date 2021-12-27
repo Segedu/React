@@ -1,24 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import useFetchResource from "./hooks/useFetch";
 
 const Comments2 = () => {
-    const [comments, setComments] = useState([]);
-    useEffect(getComments, [])
-
-    function getComments() {
-        fetch('https://jsonplaceholder.typicode.com/comments')
-            .then(response => response.json(
-            ))
-            .then(data => {
-                setComments(data)
-            })
-    }
-
-
+    const comments = useFetchResource("comments");
     return (<div>
         <h1>Comments</h1>
         <table>
-
-            {comments.map((comment, i) => <tr key={i}><td>{comment.name}{comment.body}</td></tr>)}
+            <tbody>
+                {comments.map((comment, i) => <tr key={i}><td>{comment.name}{comment.body}</td></tr>)}
+            </tbody>
         </table>
     </div>)
 }

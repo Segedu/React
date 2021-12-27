@@ -1,9 +1,19 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const useFetchResource = (resource,) => {
-    const [resource, setResource] = useState();
+    const [Data, setData] = useState([]);
+    useEffect(getData, []);
 
+    function getData() {
+        fetch(`https://jsonplaceholder.typicode.com/${resource}`)
+            .then(response => response.json(
+            ))
+            .then(data => {
+                setData(data)
+            })
+    }
 
+    return Data;
 
 }
 
