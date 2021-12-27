@@ -7,7 +7,7 @@ const Albums1 = () => {
         <h1>Albums</h1>
         <table>
             <tbody>
-                {albums.map((album, i) => <tr key={i}><td>{album.title}</td></tr>)}
+                {albums.map((album) => <tr key={album.id}><td>{album.title}</td></tr>)}
             </tbody>
         </table>
     </div>)

@@ -16,8 +16,9 @@ const Comments = () => {
     return (<div>
         <h1>Comments</h1>
         <table>
-
-            {comments.map((comment, i) => <tr key={i}><td>{comment.name}{comment.body}</td></tr>)}
+            <tbody>
+                {comments.map((comment) => <tr key={comment.id}><td>{comment.name}{comment.body}</td></tr>)}
+            </tbody>
         </table>
     </div>)
 }

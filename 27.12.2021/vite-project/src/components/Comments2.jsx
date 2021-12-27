@@ -7,7 +7,7 @@ const Comments2 = () => {
         <h1>Comments</h1>
         <table>
             <tbody>
-                {comments.map((comment, i) => <tr key={i}><td>{comment.name}{comment.body}</td></tr>)}
+                {comments.map((comment) => <tr key={comment.id}><td>{comment.name}{comment.body}</td></tr>)}
             </tbody>
         </table>
     </div>)
