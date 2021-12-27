@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const useFetchResource = (resource,) => {
+const useFetchResource = (resource) => {
     const [Data, setData] = useState([]);
     useEffect(getData, []);
 
