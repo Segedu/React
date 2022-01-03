@@ -4,10 +4,7 @@ const Authenticated = ({ email }) => {
     return (
         <Fragment>
             <h1>Authenticated page</h1>
-            <p>
-                User Email:
-                {email}
-            </p>
+            <p>User Email: {email} </p>
         </Fragment>
     )
 }
