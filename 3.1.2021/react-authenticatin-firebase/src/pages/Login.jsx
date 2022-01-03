@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react"
+import { Redirect } from "react-router-dom";
 import { API_KEY } from "../logic/keys";
 import './Log.css';
 
@@ -9,7 +10,7 @@ const Login = ({ setAuth }) => {
     const [errorFromServer, setErrorFromServer] = useState(false);
     const AUTH = "auth";
 
-    useEffect(getDataLocalStorage, [email]);
+    useEffect(getLocalStorageData, [email])
 
     const Login = () => {
         const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
@@ -28,7 +29,7 @@ const Login = ({ setAuth }) => {
             });
     }
 
-    function getDataLocalStorage() {
+    function getLocalStorageData() {
         if (AUTH !== null) {
             let data = localStorage.getItem(AUTH);
             setAuth(data);
@@ -36,7 +37,11 @@ const Login = ({ setAuth }) => {
     }
 
     return (<div className="Register">
-        <form onSubmit={(e) => { e.preventDefault(), Login() }}>
+        <h3>Login Here</h3>
+        <form onSubmit={(e) => {
+            e.preventDefault(),
+                Login()
+        }}>
             <input type="emil" placeholder="Enter Your Email" onChange={(e) => { setEmail(e.target.value) }} /><br></br>
             <input type="password" placeholder="Enter Your Password" onChange={(e) => { setPassword(e.target.value) }} /><br></br>
             <input type="submit" value="Log-In" />

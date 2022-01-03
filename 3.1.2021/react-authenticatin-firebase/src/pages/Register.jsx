@@ -40,6 +40,7 @@ const Register = ({ setAuth }) => {
 
     return (
         <div className="Register">
+            <h3>Register Here</h3>
             <form onSubmit={(e) => { e.preventDefault(), register() }}>
                 <input type="email" onChange={(e) => { emailValidation(e) }} placeholder="Enter Email" /><br></br>
                 <input type="password" onChange={(e) => { passwordValidation(e) }} placeholder="Enter Password" /><br></br>
