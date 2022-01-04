@@ -23,7 +23,7 @@ const ChangePassword = ({ auth, setAuth }) => {
                 e.preventDefault()
                 changePassword()
             }}>
-                <input type="password" placeholder="Enter New password" onChange={(e) => { setPassword(e.target.value) }} />
+                <input type="password" placeholder="Enter New password" onChange={(e) => { setPassword(e.target.value) }} /><br></br>
                 <input type="submit" value="change password" />
             </form>
         </Fragment>)
