@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react"
-import { Redirect } from "react-router-dom";
 import { API_KEY } from "../logic/keys";
 import './Log.css';
 
@@ -8,7 +7,7 @@ const Login = ({ setAuth }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorFromServer, setErrorFromServer] = useState(false);
-    const AUTH = "auth";
+    const LOCAL_STORAGE_AUTH_KEY = "auth";
 
     useEffect(getLocalStorageData, [email])
 
@@ -21,7 +20,7 @@ const Login = ({ setAuth }) => {
             })
             .then(function (response) {
                 setAuth(response.data);
-                window.localStorage.setItem(AUTH, JSON.stringify(response.data));
+                window.localStorage.setItem(LOCAL_STORAGE_AUTH_KEY, JSON.stringify(response.data));
             })
             .catch(function (error) {
                 console.log(error)
@@ -30,9 +29,9 @@ const Login = ({ setAuth }) => {
     }
 
     function getLocalStorageData() {
-        if (AUTH !== null) {
-            let data = localStorage.getItem(AUTH);
-            setAuth(data);
+        if (LOCAL_STORAGE_AUTH_KEY !== null) {
+            let data = localStorage.getItem(LOCAL_STORAGE_AUTH_KEY);
+            setAuth(JSON.parse(data));
         }
     }
 
