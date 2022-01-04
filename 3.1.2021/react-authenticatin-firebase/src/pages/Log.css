@@ -1,3 +1,4 @@
+
 .Register{
     position: relative;
     background-image: url("https://cdn.pixabay.com/photo/2018/07/15/23/24/prague-3540890__340.jpg");
@@ -10,7 +11,13 @@
     box-shadow: 0px 20px 40px gray;
     color: white;     
 }
-
+form{
+    background-color:burlywood;
+    border-radius: 10px;
+    margin-left: 25%;
+    width: 50%;
+    opacity: 0.8;
+}
 button{
     background-color: #208E15;
     border-radius: 10px;
@@ -20,25 +27,25 @@ button{
       font-size: large;
     
 }
+
 input{
     border-radius: 5px;
     margin: 1%;
     padding: 2%;
     border: none;
     background: none;
-    border-bottom:2px solid white;
+    border-bottom:2px solid black;
     font-weight: bold;
     font-size: medium;
-    color: white;
+    color: black;
 
 }
 
 input::content{
     font-size: medium;
-    color: white;
-
+    color: black;
 }
 input::placeholder{
     font-size: medium;
-    color: white;
+    color: black;
 }

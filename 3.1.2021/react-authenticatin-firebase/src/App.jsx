@@ -6,12 +6,14 @@ import Logout from './pages/Logout';
 import Register from './pages/Register';
 import Authenticated from './pages/Authenticated';
 import { BrowserRouter, Switch, Route, Link, Router, Redirect, } from "react-router-dom";
+import ChangePassword from "./pages/ChangePassword";
 
 function App() {
   const [auth, setAuth] = useState(null);
 
   return (
     <BrowserRouter>
+      <ChangePassword setAuth={setAuth} auth={auth} />
       <div className="App">
         {!auth ? (
           <>
@@ -19,7 +21,7 @@ function App() {
             <Link to="/Login">Login</Link><span> | </span>
             <Link to="/Register">Register</Link><span> | </span>
           </>) :
-          <Redirect to="/Authenticated" />}
+          <Redirect to="/" />}
         {auth ? (<>
           <Link to="/">Home</Link><span> | </span>
           <Link to="/Authenticated">Authenticated</Link><span> | </span>
