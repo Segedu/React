@@ -13,19 +13,27 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Link to="/">Home</Link><span> | </span>
-        <Link to="/Login">Login</Link><span> | </span>
-        <Link to="/Register">Register</Link><span> | </span>
-        <Link to="/Authenticated">Authenticated</Link>
+        {!auth ? (
+          <>
+            <Link to="/">Home</Link><span> | </span>
+            <Link to="/Login">Login</Link><span> | </span>
+            <Link to="/Register">Register</Link><span> | </span>
+          </>) :
+          <Redirect to="/Authenticated" />}
+        {auth ? (<>
+          <Link to="/">Home</Link><span> | </span>
+          <Link to="/Authenticated">Authenticated</Link><span> | </span>
+        </>
+        ) : <Redirect to="/Login" />}
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route exact path="/Login" render={() => auth ? <Redirect to="/Authenticated" /> : <Login setAuth={setAuth} />} />
-          <Route exact path="/Register" render={() => auth ? <Redirect to="/" /> : <Register setAuth={setAuth} />} />
-          <Route exact path="/Authenticated" render={() => auth ? <Authenticated email={auth.email} /> : <Redirect to="/Login" />} />
+          <Route exact path="/Login" render={() => <Login setAuth={setAuth} />} />
+          <Route exact path="/Register" render={() => <Register setAuth={setAuth} />} />
+          <Route exact path="/Authenticated" render={() => <Authenticated email={auth.email} />} />
         </Switch>
-        {auth ? <Logout setAuth={setAuth} /> : ""}
+        {auth ? <Logout setAuth={setAuth} /> : <Redirect to="/" />}
       </div>
-    </BrowserRouter>
+    </BrowserRouter >
   )
 
 }
