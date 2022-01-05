@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Register from './pages/Register';
 import Authenticated from './pages/Authenticated';
-import { BrowserRouter, Switch, Route, Link, Router, Redirect, } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Link, Redirect, } from "react-router-dom";
 import ChangePassword from "./pages/ChangePassword";
 
 function App() {
